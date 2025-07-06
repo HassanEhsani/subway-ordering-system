@@ -1,25 +1,18 @@
 export default function CartItem({ item, onRemove }) {
   return (
-    <li className="bg-white p-4 rounded-2xl shadow-md flex justify-between items-center border border-[#FFC72C]">
+    <li className="bg-white rounded-2xl shadow p-5 flex justify-between items-center">
       <div>
-        <span className="font-semibold text-[#008C45]">{item.name}</span> x{" "}
-        <span>{item.quantity}</span>
+        <h3 className="text-lg font-semibold text-[#008C45]">{item.name}</h3>
+        <p className="text-gray-600">Кол-во: {item.quantity}</p>
+        <p className="text-gray-800 font-bold">{item.price * item.quantity}₽</p>
       </div>
-      <div className="flex items-center gap-4">
-        <span className="text-[#FFC72C] font-bold">
-          {(item.price * item.quantity).toLocaleString("ru-RU", {
-            style: "currency",
-            currency: "RUB",
-          })}
-        </span>
-        <button
-          onClick={() => onRemove(item.id)}
-          className="text-[#FF4B4B] hover:text-[#D12D2D] text-lg"
-          aria-label="Remove item"
-        >
-          ❌
-        </button>
-      </div>
+      <button
+        onClick={() => onRemove(item.id)}
+        className="text-red-500 hover:text-red-700 font-bold text-xl"
+      >
+        ✕
+      </button>
     </li>
+
   );
 }

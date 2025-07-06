@@ -1,22 +1,31 @@
-export default function MenuItem({ item, onAdd }) {
-  return (
-    <div className="bg-white p-5 rounded-3xl shadow-lg hover:shadow-2xl transition duration-300">
-      <h3 className="text-lg font-extrabold text-[#008C45]">{item.name}</h3>
-      <p className="text-gray-700 mt-1">{item.description}</p>
-      <div className="flex items-center justify-between mt-5">
-        <span className="text-[#FFC72C] font-extrabold text-lg">
-          {item.price.toLocaleString("ru-RU", {
-            style: "currency",
-            currency: "RUB",
-          })}
-        </span>
-        <button
-          className="bg-[#008C45] text-[#FFF7C2] px-5 py-2 rounded-full hover:bg-[#006833] transition"
-          onClick={() => onAdd(item)}
-        >
-          Добавить
-        </button>
-      </div>
-    </div>
-  );
+import React from "react";
+
+function MenuItem({ item, onAdd }) {
+    return (
+        <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+            <img
+                src={`/src/assets/${item.image}`}
+                alt={item.name}
+                className="w-full h-48 object-cover"
+            />
+            <div className="p-4">
+                <h3 className="text-xl font-semibold text-[#008C45]">{item.name}</h3>
+                <p className="text-gray-600 mt-2">{item.description}</p>
+                <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition duration-300">
+                    <h3 className="text-xl font-semibold text-[#008C45]">{item.name}</h3>
+                    <p className="text-gray-600 mt-2">{item.description}</p>
+                    <p className="mt-2 text-lg font-bold text-[#333]">{item.price}₽</p>
+                    <button
+                        onClick={() => onAdd(item)}
+                        className="mt-4 bg-[#FFC72C] text-[#008C45] font-bold px-6 py-3 rounded-full hover:bg-[#e6b92c] transition"
+                    >
+                        Добавить
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    );
 }
+
+export default MenuItem;
