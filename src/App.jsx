@@ -37,11 +37,11 @@ function App() {
   };
 
   return (
-  <div className="min-h-screen flex flex-col items-center justify-center bg-transparent px-4 py-10">
-    <div className="bg-white/70 backdrop-blur-lg shadow-2xl rounded-3xl p-10 max-w-6xl w-full">
+  <div className="min-h-screen bg-yellow-50 flex items-center justify-center px-4 py-10">
+    <div className="bg-white/80 backdrop-blur-xl shadow-2xl rounded-3xl p-10 w-full max-w-6xl">
       <Header />
       <main className="grid md:grid-cols-2 gap-10">
-        {/* بخش منو */}
+        {/*   */}
         <section>
           <h2 className="text-xl font-bold text-[#008C45] mb-4">Меню</h2>
           <div className="grid gap-6">
