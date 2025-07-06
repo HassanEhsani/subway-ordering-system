@@ -37,24 +37,27 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FFF7C2]">
+  <div className="min-h-screen flex flex-col items-center justify-center bg-transparent px-4 py-10">
+    <div className="bg-white/70 backdrop-blur-lg shadow-2xl rounded-3xl p-10 max-w-6xl w-full">
       <Header />
-      <main className="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-8">
+      <main className="grid md:grid-cols-2 gap-10">
+        {/* بخش منو */}
         <section>
           <h2 className="text-xl font-bold text-[#008C45] mb-4">Меню</h2>
-          <div className="grid gap-5">
+          <div className="grid gap-6">
             {menuItems.map((item) => (
               <MenuItem key={item.id} item={item} onAdd={addToCart} />
             ))}
           </div>
         </section>
 
+        {/* بخش سبد خرید */}
         <section>
           <h2 className="text-xl font-bold text-[#008C45] mb-4">Корзина</h2>
           {cart.length === 0 ? (
             <p className="text-gray-600">Корзина пуста 🛒</p>
           ) : (
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {cart.map((item) => (
                 <CartItem key={item.id} item={item} onRemove={removeFromCart} />
               ))}
@@ -62,14 +65,15 @@ function App() {
           )}
           <button
             onClick={submitOrder}
-            className="mt-8 w-full bg-[#FFC72C] text-[#008C45] font-extrabold py-3 rounded-full hover:bg-[#E6B92C] transition"
+            className="mt-8 w-full bg-[#FFC72C] text-[#008C45] font-bold py-3 rounded-full shadow-md hover:shadow-lg hover:bg-[#e6b92c] transition duration-300"
           >
             Оформить заказ
           </button>
         </section>
       </main>
     </div>
-  );
+  </div>
+);
 }
 
 export default App;
